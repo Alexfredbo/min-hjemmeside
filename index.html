@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astma, Allergi- og Lungeklinik for Børn</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky: #e8f4f8;
+      --deep: #1a3a4a;
+      --teal: #2a7a8c;
+      --teal-light: #3a9ab0;
+      --accent: #e8734a;
+      --warm: #fdf8f2;
+      --text: #1a2e38;
+      --muted: #5a7a88;
+      --border: #c8dde6;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      animation: fadeDown 0.6s ease both;
+    }
+    @keyframes fadeDown { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform:none; } }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem; text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .nav-logo-text {
+      font-family: 'DM Serif Display', serif;
+      color: var(--deep);
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+    .nav-logo-text span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; color: var(--muted); font-weight: 300; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal); color: white;
+      padding: 0.5rem 1.2rem; border-radius: 50px;
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; right: -10%; top: -5%;
+      width: 65%; height: 110%;
+      background: linear-gradient(145deg, var(--sky) 0%, #c8e8f0 60%, #b0d4e0 100%);
+      border-radius: 40% 0 0 40%;
+      z-index: 0;
+    }
+
+    .hero-bg-dots {
+      position: absolute; right: 5%; top: 10%; z-index: 1;
+      width: 200px; height: 200px;
+      background-image: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      opacity: 0.15;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform:none; } }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(42,122,140,0.1); color: var(--teal);
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--deep);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+
+    .hero-desc {
+      font-size: 1.05rem; color: var(--muted); font-weight: 300;
+      max-width: 440px; margin-bottom: 2.5rem; line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--teal); color: white;
+      padding: 0.85rem 1.8rem; border-radius: 50px;
+      text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;
+      box-shadow: 0 4px 20px rgba(42,122,140,0.3);
+    }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(42,122,140,0.35); }
+
+    .btn-ghost {
+      background: transparent; color: var(--deep);
+      padding: 0.85rem 1.8rem; border-radius: 50px;
+      text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      border: 1.5px solid var(--border);
+      transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+    .hero-image {
+      position: relative; z-index: 2;
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      max-width: 340px; width: 100%;
+      box-shadow: 0 20px 60px rgba(26,58,74,0.12), 0 4px 16px rgba(26,58,74,0.06);
+      position: relative;
+    }
+
+    .doctor-portrait {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky), var(--teal-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; margin: 0 auto 1.2rem;
+      border: 3px solid white;
+      box-shadow: 0 4px 16px rgba(42,122,140,0.2);
+    }
+
+    .hero-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; color: var(--deep); text-align: center;
+      margin-bottom: 0.3rem;
+    }
+    .hero-card .title {
+      font-size: 0.8rem; color: var(--muted); text-align: center;
+      line-height: 1.5; margin-bottom: 1.5rem;
+    }
+
+    .hero-card-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .stat-box {
+      background: var(--sky); border-radius: 12px;
+      padding: 0.75rem; text-align: center;
+    }
+    .stat-box .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem; color: var(--teal);
+      display: block;
+    }
+    .stat-box .label {
+      font-size: 0.72rem; color: var(--muted); line-height: 1.3;
+    }
+
+    .badge-float {
+      position: absolute; bottom: -12px; right: -12px;
+      background: var(--accent); color: white;
+      border-radius: 12px; padding: 0.6rem 1rem;
+      font-size: 0.78rem; font-weight: 500;
+      box-shadow: 0 4px 16px rgba(232,115,74,0.35);
+      line-height: 1.3;
+    }
+
+    /* HOURS STRIP */
+    .hours-strip {
+      background: var(--deep);
+      padding: 1.8rem 5%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 4rem; flex-wrap: wrap;
+    }
+    .hours-item { display: flex; align-items: center; gap: 1rem; }
+    .hours-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .hours-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.2rem; }
+    .hours-value { color: white; font-size: 0.9rem; font-weight: 400; }
+    .hours-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
+
+    /* SECTIONS */
+    section { padding: 6rem 5%; }
+
+    .section-tag {
+      display: inline-block; color: var(--teal);
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--deep); line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-lead {
+      font-size: 1.05rem; color: var(--muted);
+      font-weight: 300; max-width: 540px; line-height: 1.7;
+    }
+
+    /* SPECIALTIES */
+    .specialties { background: white; }
+    .specialties-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .spec-card {
+      border: 1px solid var(--border); border-radius: 18px;
+      padding: 2rem; background: var(--warm);
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .spec-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(42,122,140,0.04) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .spec-card:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(42,122,140,0.1); }
+    .spec-card:hover::before { opacity: 1; }
+
+    .spec-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .spec-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem; color: var(--deep); margin-bottom: 0.6rem;
+    }
+    .spec-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* KONSULTATION */
+    .konsultation { background: var(--warm); }
+    .konsult-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+
+    .konsult-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+    .step {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.5rem; background: white; border-radius: 16px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .step:hover { border-color: var(--teal); }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--teal); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 600; flex-shrink: 0;
+    }
+    .step h4 { font-size: 0.95rem; color: var(--deep); margin-bottom: 0.3rem; font-weight: 500; }
+    .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+    .konsult-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .info-box {
+      background: white; border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+    .info-box h4 {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--teal); margin-bottom: 0.75rem; font-weight: 500;
+    }
+    .info-box p { font-size: 0.9rem; color: var(--text); line-height: 1.7; }
+    .info-box a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .info-box a:hover { text-decoration: underline; }
+
+    .phone-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; color: var(--deep);
+    }
+
+    .econsult-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+      color: white; padding: 1rem 1.5rem; border-radius: 12px;
+      text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      transition: all 0.2s; box-shadow: 0 4px 20px rgba(42,122,140,0.25);
+    }
+    .econsult-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(42,122,140,0.35); }
+
+    /* ABOUT */
+    .about { background: white; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+
+    .about-portrait-wrap { position: relative; }
+    .about-portrait {
+      width: 100%; aspect-ratio: 3/4; max-width: 340px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, var(--sky) 0%, #b8d8e8 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      box-shadow: 0 20px 60px rgba(26,58,74,0.12);
+      position: relative; overflow: hidden;
+    }
+    .about-portrait::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to top, rgba(26,58,74,0.3), transparent);
+    }
+
+    .about-accent-box {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--accent); color: white;
+      border-radius: 16px; padding: 1.2rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(232,115,74,0.35);
+    }
+    .about-accent-box .big { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1; }
+    .about-accent-box .small { font-size: 0.75rem; opacity: 0.85; }
+
+    .about-content p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.8;
+      margin-bottom: 1rem; font-weight: 300;
+    }
+    .about-content p strong { color: var(--deep); font-weight: 500; }
+
+    .credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+    .cred {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--warm); border-radius: 10px;
+      border-left: 3px solid var(--teal);
+    }
+    .cred-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-top: 6px; flex-shrink: 0; }
+    .cred p { font-size: 0.85rem; color: var(--text); line-height: 1.5; }
+
+    /* FIND OS */
+    .find-os { background: var(--deep); color: white; }
+    .find-os .section-title { color: white; }
+    .find-os .section-lead { color: rgba(255,255,255,0.55); }
+    .find-os .section-tag { color: var(--teal-light); }
+
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .location-map {
+      border-radius: 20px; overflow: hidden;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.75rem;
+    }
+    .location-map .map-placeholder { font-size: 3rem; opacity: 0.4; }
+    .location-map p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+    .location-map a {
+      color: var(--teal-light); font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; border: 1px solid var(--teal-light);
+      padding: 0.4rem 1rem; border-radius: 50px; transition: all 0.2s;
+    }
+    .location-map a:hover { background: var(--teal-light); color: white; }
+
+    .location-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .loc-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+    }
+    .loc-box h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal-light); margin-bottom: 0.5rem; }
+    .loc-box p { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.65; }
+    .loc-box a { color: var(--teal-light); text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      background: #0f2530;
+      padding: 2.5rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { color: rgba(255,255,255,0.35); font-size: 0.82rem; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; }
+    footer a:hover { color: var(--teal-light); }
+
+    /* ACCREDITED BADGE */
+    .accredited {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.4rem 0.9rem; border-radius: 50px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.55);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; text-align: center; }
+      .hero::before { display: none; }
+      .hero-image { margin-top: 2rem; }
+      .hero-actions { justify-content: center; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .specialties-grid { grid-template-columns: 1fr 1fr; }
+      .konsult-grid, .about-grid, .location-grid { grid-template-columns: 1fr; }
+      .hours-strip { gap: 1.5rem; }
+      .hours-divider { display: none; }
+      nav .nav-links { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .specialties-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🫁</div>
+    <div class="nav-logo-text">
+      Astma &amp; Allergiklinik
+      <span>for Børn · København</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#specialer">Specialer</a></li>
+    <li><a href="#konsultation">Konsultation</a></li>
+    <li><a href="#om">Om Lægen</a></li>
+    <li><a href="#find">Find Os</a></li>
+  </ul>
+  <a href="https://patientportal.egclinea.com/?id=648" target="_blank" class="nav-cta">E-Konsultation →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-dots"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🏥 Speciallægepraksis · København K</div>
+    <h1>Ekspert i <em>Børns</em><br>Astma, Allergi<br>&amp; Lunger</h1>
+    <p class="hero-desc">
+      Specialiseret klinik ledet af professor og overlæge dr.med. Kim Gjerum Nielsen — med over 30 års erfaring fra Rigshospitalets børneafdeling.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:33136513" class="btn-primary">📞 Ring for Tid</a>
+      <a href="#konsultation" class="btn-ghost">Læs Mere</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <div class="hero-card">
+      <div class="doctor-portrait">👨‍⚕️</div>
+      <h3>Dr.med. Kim Gjerum Nielsen</h3>
+      <p class="title">Speciallæge i Pædiatri<br>Professor, Overlæge, Dr.med.</p>
+      <div class="hero-card-stats">
+        <div class="stat-box">
+          <span class="num">1992</span>
+          <span class="label">Ansat på Rigshospitalet</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">2005</span>
+          <span class="label">Overlæge siden</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">2006</span>
+          <span class="label">Egen praksis åbnede</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">KU</span>
+          <span class="label">Disputats 2006</span>
+        </div>
+      </div>
+      <div class="badge-float">✅ Akkrediteret<br>klinik</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS STRIP -->
+<div class="hours-strip">
+  <div class="hours-item">
+    <div class="hours-icon">🕒</div>
+    <div>
+      <div class="hours-label">Konsultation</div>
+      <div class="hours-value">Onsdage kl. 15:30–20:00</div>
+    </div>
+  </div>
+  <div class="hours-divider"></div>
+  <div class="hours-item">
+    <div class="hours-icon">📅</div>
+    <div>
+      <div class="hours-label">Telefonisk Tidsbestilling</div>
+      <div class="hours-value">Man 08–09:30 · Tir–Tor 08–09:00</div>
+    </div>
+  </div>
+  <div class="hours-divider"></div>
+  <div class="hours-item">
+    <div class="hours-icon">📞</div>
+    <div>
+      <div class="hours-label">Telefon</div>
+      <div class="hours-value"><a href="tel:33136513" style="color:white;text-decoration:none;">3313 6513</a></div>
+    </div>
+  </div>
+  <div class="hours-divider"></div>
+  <div class="hours-item">
+    <div class="hours-icon">📱</div>
+    <div>
+      <div class="hours-label">Mobil (kl. 16–19)</div>
+      <div class="hours-value"><a href="tel:21261595" style="color:white;text-decoration:none;">2126 1595</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIALER -->
+<section class="specialties" id="specialer">
+  <div class="section-tag">Behandlingsområder</div>
+  <h2 class="section-title">Hvad vi behandler</h2>
+  <p class="section-lead">Klinikken tilbyder specialiseret udredning og behandling af børn og unge med luftvejs- og allergisygdomme.</p>
+
+  <div class="specialties-grid">
+    <div class="spec-card">
+      <div class="spec-icon">🌬️</div>
+      <h3>Astma</h3>
+      <p>Udredning, diagnostik og behandling af astma hos børn og unge — fra milde symptomer til svær astma.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🌿</div>
+      <h3>Allergi</h3>
+      <p>Undersøgelse og behandling af alle typer allergier, herunder pollen, fødevarer, husstøvmider og dyrehår.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🫁</div>
+      <h3>Lungesygdomme</h3>
+      <p>Specialiseret vurdering af kroniske og akutte lungeproblemer hos børn med avanceret spirometri og test.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">👶</div>
+      <h3>Pædiatri</h3>
+      <p>Bred børnemedicinsk viden der sikrer helhedsorienteret tilgang til dit barns sundhed og udvikling.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🔬</div>
+      <h3>Lungefunktionstest</h3>
+      <p>Avancerede målinger af lungernes kapacitet og funktion — inkl. bronkial provokationstest hos de mindste.</p>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">📋</div>
+      <h3>E-Konsultation</h3>
+      <p>Mulighed for digital kontakt med klinikken via vores sikre patientportal — hurtigt og nemt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KONSULTATION -->
+<section class="konsultation" id="konsultation">
+  <div class="section-tag">Bestil tid</div>
+  <h2 class="section-title">Sådan får du en tid</h2>
+  <p class="section-lead">Booking sker via telefon i vores åbningstider. Vi tilbyder også e-konsultation via vores patientportal.</p>
+
+  <div class="konsult-grid">
+    <div class="konsult-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Ring inden for tidsbestillingstider</h4>
+          <p>Mandag kl. 08:00–09:30 · Tirsdag–Torsdag kl. 08:00–09:00 på tlf. 3313 6513</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h4>Mød frem til konsultation</h4>
+          <p>Konsultationer finder sted om onsdagen kl. 15:30–20:00 på Nørre Farimagsgade 13, 1. tv.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h4>Alternativt: E-konsultation</h4>
+          <p>Har du spørgsmål eller behov for opfølgning, kan du kontakte klinikken digitalt via patientportalen.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="konsult-info">
+      <div class="info-box">
+        <h4>Telefon</h4>
+        <div class="phone-big"><a href="tel:33136513" style="color:inherit;text-decoration:none;">3313 6513</a></div>
+        <p style="margin-top:0.4rem;font-size:0.82rem;color:var(--muted);">Mobil (kl. 16–19): <a href="tel:21261595">2126 1595</a></p>
+      </div>
+      <div class="info-box">
+        <h4>Adresse</h4>
+        <p>Nørre Farimagsgade 13, 1. tv<br>1364 København K</p>
+      </div>
+      <a href="https://patientportal.egclinea.com/?id=648" target="_blank" class="econsult-btn">
+        💻 Gå til E-Konsultation Portalen
+      </a>
+      <div class="info-box">
+        <h4>Dansk BørneLunge Center</h4>
+        <p>Dr. Nielsen er daglig leder af <a href="https://www.rigshospitalet.dk/afdelinger-og-klinikker/julianemarie/boerne-unge-klinikken/dansk-boernelungecenter/Sider/default.aspx" target="_blank">Dansk BørneLunge Center</a> på Rigshospitalet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="om">
+  <div class="section-tag">Klinikindehaver</div>
+  <h2 class="section-title">Kim Gjerum Nielsen</h2>
+  <p class="section-lead">Professor, speciallæge og overlæge med en enestående faglig baggrund inden for børns luftvejssygdomme.</p>
+
+  <div class="about-grid">
+    <div class="about-portrait-wrap">
+      <div class="about-portrait">👨‍⚕️</div>
+      <div class="about-accent-box">
+        <div class="big">30+</div>
+        <div class="small">års erfaring</div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <p>
+        <strong>Kim Gjerum Nielsen</strong> er speciallæge i pædiatri, professor og overlæge dr.med., uddannet fra Københavns Universitet i 1987. Han har siden 1992 været tilknyttet Rigshospitalets børneafdeling og er overlæge der siden 2005.
+      </p>
+      <p>
+        I 2006 forsvarede han sin disputats: <em>"Lung function and bronchial responsiveness in young children — clinical and research applications"</em> ved Københavns Universitet. Samme år åbnede han sin egen speciallægepraksis.
+      </p>
+      <p>
+        Kim Gjerum Nielsen er daglig leder af <strong>Dansk BørneLunge Center på Rigshospitalet</strong> og er en af landets førende eksperter inden for lungefunktion og luftvejssygdomme hos børn.
+      </p>
+
+      <div class="credentials">
+        <div class="cred">
+          <div class="cred-dot"></div>
+          <p>Speciallæge i pædiatri — Københavns Universitet, 1987</p>
+        </div>
+        <div class="cred">
+          <div class="cred-dot"></div>
+          <p>Ansat ved Rigshospitalets børneafdeling siden 1992 · Overlæge siden 2005</p>
+        </div>
+        <div class="cred">
+          <div class="cred-dot"></div>
+          <p>Dr.med. — disputats om lungefunktion hos børn, KU 2006</p>
+        </div>
+        <div class="cred">
+          <div class="cred-dot"></div>
+          <p>Daglig leder af Dansk BørneLunge Center, Rigshospitalet</p>
+        </div>
+        <div class="cred">
+          <div class="cred-dot"></div>
+          <p>Akkrediteret klinik efter den danske kvalitetsmodel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND OS -->
+<section class="find-os" id="find">
+  <div class="section-tag">Find Os</div>
+  <h2 class="section-title">Kontakt &amp; Beliggenhed</h2>
+  <p class="section-lead">Vi holder til i hjertet af København K — tæt på offentlig transport.</p>
+
+  <div class="location-grid">
+    <div class="location-map">
+      <div class="map-placeholder">🗺️</div>
+      <p>Nørre Farimagsgade 13, 1. tv · 1364 Kbh K</p>
+      <a href="https://maps.google.com/?q=Nørre+Farimagsgade+13,+1364+København+K" target="_blank">Åbn i Google Maps →</a>
+    </div>
+
+    <div class="location-info">
+      <div class="loc-box">
+        <h4>Adresse</h4>
+        <p>Nørre Farimagsgade 13, 1. tv<br>1364 København K</p>
+      </div>
+      <div class="loc-box">
+        <h4>Telefon</h4>
+        <p><a href="tel:33136513">3313 6513</a><br>Mobil (kl. 16–19): <a href="tel:21261595">2126 1595</a></p>
+      </div>
+      <div class="loc-box">
+        <h4>Åbningstider — Konsultation</h4>
+        <p>Onsdag: 15:30–20:00</p>
+      </div>
+      <div class="loc-box">
+        <h4>Telefonisk Tidsbestilling</h4>
+        <p>
+          Mandag: 08:00–09:30<br>
+          Tirsdag–Torsdag: 08:00–09:00
+        </p>
+      </div>
+      <div class="loc-box">
+        <h4>CVR</h4>
+        <p>29907706</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Astma, Allergi- og Lungeklinik for Børn · v/ Kim Gjerum Nielsen</p>
+  <div class="accredited">✅ Akkrediteret efter den danske kvalitetsmodel</div>
+  <a href="https://patientportal.egclinea.com/?id=648" target="_blank">E-Konsultation →</a>
+</footer>
+
+</body>
+</html>
