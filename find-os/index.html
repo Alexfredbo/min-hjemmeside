@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find os | Astma-, allergi- og lungeklinik for børn</title>
+<meta name="description" content="Astma-, allergi- og lungeklinik for børn ligger på Nørre Farimagsgade 13, 1. tv., 1364 København K, tæt på Nørreport Station.">
+<link rel="canonical" href="https://boerneastmaallergilunge.dk/find-os/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231f5f8b'/><path d='M10 22c0-6 2-10 5-11v11c-2 1-5 1-5 0zm12 0c0-6-2-10-5-11v11c2 1 5 1 5 0z' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a href="../" class="brand" aria-label="Forside">
+      <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#1f5f8b"/><path d="M10 22c0-6 2-10 5-11v11c-2 1-5 1-5 0zm12 0c0-6-2-10-5-11v11c2 1 5 1 5 0z" fill="#fff"/></svg>
+      <span><strong>Astma-, allergi- og lungeklinik for børn</strong><small>Kim Gjerum Nielsen, København K</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <ul class="menu" id="menu">
+      <li><a href="../konsultation/">Konsultation</a></li>
+      <li><a href="../ny-patient/">Første besøg</a></li>
+      <li><a href="../#om">Om lægen</a></li>
+      <li><a href="../find-os/" class="active">Find os</a></li>
+    </ul>
+    <a href="tel:33136513" class="btn btn-solid btn-small">Ring 3313 6513</a>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <p class="crumbs"><a href="../">Forside</a> / Find os</p>
+      <h1>Find os</h1>
+      <p>Nørre Farimagsgade 13, 1. tv., 1364 København K</p>
+    </div>
+  </div>
+  <div class="page">
+    <div class="wrap page-grid">
+      <div class="prose">
+
+        <div class="map-full">
+          <iframe src="https://maps.google.com/maps?q=N%C3%B8rre%20Farimagsgade%2013%2C%201364%20K%C3%B8benhavn%20K&z=16&output=embed" title="Kort over Nørre Farimagsgade 13, København K" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <h2>Adresse</h2>
+        <p>Astma-, Allergi- og Lungeklinik for Børn<br>v/ Kim Gjerum Nielsen<br>Nørre Farimagsgade 13, 1. tv.<br>1364 København K</p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=N%C3%B8rre%20Farimagsgade%2013%2C%201364%20K%C3%B8benhavn%20K" target="_blank" rel="noopener">Få rutevejledning</a></p>
+        <h2>Transport</h2>
+        <p>Klinikken ligger få minutters gang fra Nørreport Station.</p>
+      </div>
+      <aside class="side">
+        <div class="side-box">
+          <h2>Om konsultationen</h2>
+          <ul class="subnav"><li><a href="../konsultation/">Konsultation</a></li><li><a href="../ny-patient/">Første besøg</a></li><li><a href="../telefonkonsultation1/">Telefon og e-konsultation</a></li><li><a href="../utilsigtede-haendelser/">Utilsigtede hændelser</a></li></ul>
+        </div>
+        <div class="side-box">
+          <h2>Tidsbestilling</h2>
+          <p><a href="tel:33136513"><strong>3313 6513</strong></a></p>
+          <p>Mandag 8.00–9.30<br>Tirsdag–torsdag 8.00–9.00</p>
+          <p>Konsultation onsdag<br>15.30–20.00</p>
+          <a href="https://patientportal.egclinea.com/?id=648" target="_blank" rel="noopener" class="btn btn-line btn-small">E-konsultation</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="year">2026</span> Astma-, Allergi- og Lungeklinik for Børn v/ Kim Gjerum Nielsen. Nørre Farimagsgade 13, 1. tv., 1364 København K. CVR 29907706.</p>
+    <p><a href="../utilsigtede-haendelser/">Utilsigtede hændelser</a> &nbsp; <a href="https://patientportal.egclinea.com/?id=648" target="_blank" rel="noopener">E-konsultation</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const t = document.querySelector('.menu-toggle'), m = document.getElementById('menu');
+  t.addEventListener('click', () => { const o = m.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+  m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { m.classList.remove('open'); t.setAttribute('aria-expanded', false); }));
+</script>
+</body>
+</html>

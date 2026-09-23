@@ -3,205 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Astma-, allergi- og lungeklinik for børn | Kim Gjerum Nielsen</title>
-<meta name="description" content="Speciallægepraksis for børn med astma, allergi og lungesygdomme. Nørre Farimagsgade 13, 1364 København K. Tlf. 3313 6513.">
+<title>Astma-, allergi- og lungeklinik for børn | Kim Gjerum Nielsen, København K</title>
+<meta name="description" content="Speciallægepraksis for børn med astma, allergi og lungesygdomme ved professor, overlæge dr.med. Kim Gjerum Nielsen. Nørre Farimagsgade 13, 1364 København K. Tlf. 3313 6513.">
+<link rel="canonical" href="https://boerneastmaallergilunge.dk/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231f5f8b'/><path d='M10 22c0-6 2-10 5-11v11c-2 1-5 1-5 0zm12 0c0-6-2-10-5-11v11c2 1 5 1 5 0z' fill='white'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #13293d;
-    --ink-soft: #4a5f72;
-    --blue: #1f5f8b;
-    --blue-dark: #174a6d;
-    --mist: #eaf2f7;
-    --mint: #e3f1ea;
-    --sun: #f3c64e;
-    --paper: #fbfcfd;
-    --line: #d7e2ea;
-    --radius: 14px;
-    --wrap: 1120px;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-  body {
-    font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 1.0625rem; line-height: 1.6;
-    color: var(--ink); background: var(--paper);
-  }
-  img { max-width: 100%; height: auto; display: block; }
-  a { color: var(--blue); }
-  a[href^="tel:"] { white-space: nowrap; }
-  h1, h2, h3 { font-family: 'Literata', Georgia, serif; font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; }
-  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
-  :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 4px; }
-
-  /* Header */
-  header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(251,252,253,0.94); backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .bar { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 1rem; }
-  .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--ink); }
-  .brand svg { flex-shrink: 0; }
-  .brand strong { display: block; font-family: 'Literata', Georgia, serif; font-weight: 600; font-size: 1.02rem; line-height: 1.2; }
-  .brand small { display: block; font-size: 0.8rem; color: var(--ink-soft); }
-  .menu { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
-  .menu a { color: var(--ink-soft); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-  .menu a:hover { color: var(--blue); }
-  .menu-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; padding: 0.45rem 0.7rem; font: inherit; font-size: 0.9rem; color: var(--ink); cursor: pointer; }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.35rem; border-radius: 999px;
-    font-weight: 600; font-size: 0.98rem; text-decoration: none;
-    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .btn-solid { background: var(--blue); color: #fff; }
-  .btn-solid:hover { background: var(--blue-dark); }
-  .btn-line { border: 1.5px solid var(--line); color: var(--ink); background: #fff; }
-  .btn-line:hover { border-color: var(--blue); color: var(--blue); }
-  .btn-small { padding: 0.55rem 1rem; font-size: 0.9rem; }
-
-  /* Hero */
-  .hero { padding: 4.5rem 0 3.5rem; }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: center; }
-  .hero h1 { font-size: clamp(2.2rem, 4.4vw, 3.4rem); margin-bottom: 1.25rem; max-width: 14ch; }
-  .hero p { color: var(--ink-soft); font-size: 1.15rem; max-width: 46ch; margin-bottom: 2rem; }
-  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .hero-photo { position: relative; }
-  .hero-photo img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; border-radius: 22px; }
-  .hero-photo figcaption {
-    position: absolute; left: 1.25rem; bottom: -1.5rem;
-    background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 0.9rem 1.2rem; box-shadow: 0 10px 30px rgba(19,41,61,0.10);
-    font-size: 0.92rem; line-height: 1.4;
-  }
-  .hero-photo figcaption strong { display: block; font-family: 'Literata', Georgia, serif; font-size: 1.05rem; }
-
-  /* Info band */
-  .band { background: var(--ink); color: #fff; margin-top: 3rem; }
-  .band-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-  .band-item { padding: 1.6rem 1.5rem; border-left: 1px solid rgba(255,255,255,0.12); }
-  .band-item:first-child { border-left: 0; padding-left: 0; }
-  .band-item h3 { font-family: 'Figtree', sans-serif; font-size: 0.85rem; font-weight: 500; color: #a9c3d6; margin-bottom: 0.3rem; }
-  .band-item p { font-size: 1.02rem; }
-  .band-item a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.35); }
-  .band-item a:hover { border-color: var(--sun); }
-
-  /* Sections */
-  section { padding: 5.5rem 0; }
-  .head { max-width: 40rem; margin-bottom: 2.75rem; }
-  .head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.75rem; }
-  .head p { color: var(--ink-soft); }
-
-  /* Behandling */
-  .areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2.5rem; }
-  .area { padding: 1.5rem 0 1.75rem; border-top: 2px solid var(--line); }
-  .area h3 { font-size: 1.2rem; margin-bottom: 0.45rem; }
-  .area p { color: var(--ink-soft); font-size: 0.98rem; }
-
-  /* Tidsbestilling */
-  .booking { background: var(--mist); }
-  .booking-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
-  .steps { list-style: none; counter-reset: s; display: grid; gap: 1rem; }
-  .steps li {
-    counter-increment: s; position: relative;
-    background: #fff; border-radius: var(--radius); padding: 1.35rem 1.5rem 1.35rem 4.25rem;
-  }
-  .steps li::before {
-    content: counter(s); position: absolute; left: 1.35rem; top: 1.3rem;
-    width: 2rem; height: 2rem; border-radius: 50%;
-    background: var(--blue); color: #fff; font-weight: 600; font-size: 0.95rem;
-    display: grid; place-items: center;
-  }
-  .steps h3 { font-family: 'Figtree', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 0.2rem; }
-  .steps p { color: var(--ink-soft); font-size: 0.98rem; }
-  .callbox { background: #fff; border-radius: var(--radius); padding: 2rem; }
-  .callbox .label { color: var(--ink-soft); font-size: 0.95rem; }
-  .callbox .phone { font-family: 'Literata', Georgia, serif; font-size: 2.3rem; font-weight: 600; color: var(--ink); text-decoration: none; display: inline-block; margin: 0.1rem 0 1.25rem; }
-  .callbox .phone:hover { color: var(--blue); }
-  .times { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.98rem; }
-  .times td { padding: 0.55rem 0; border-top: 1px solid var(--line); }
-  .times td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-  .callbox .note { font-size: 0.9rem; color: var(--ink-soft); margin-top: 1rem; }
-
-  /* Om lægen */
-  .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; }
-  .about-grid img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; }
-  .about-text p { color: var(--ink-soft); margin-bottom: 1rem; max-width: 60ch; }
-  .about-text p strong { color: var(--ink); font-weight: 600; }
-  .timeline { list-style: none; margin-top: 2rem; border-left: 2px solid var(--line); }
-  .timeline li { position: relative; padding: 0 0 1.25rem 1.5rem; }
-  .timeline li::before {
-    content: ''; position: absolute; left: -7px; top: 0.45rem;
-    width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--blue);
-  }
-  .timeline li:last-child { padding-bottom: 0; }
-  .timeline b { font-variant-numeric: tabular-nums; color: var(--blue); margin-right: 0.5rem; }
-
-  /* Find os */
-  .find { background: var(--mint); }
-  .find-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: stretch; }
-  .map { border-radius: var(--radius); overflow: hidden; background: #d9e6df; min-height: 420px; }
-  .map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
-  .contact { background: #fff; border-radius: var(--radius); padding: 2rem; display: grid; gap: 1.4rem; align-content: start; }
-  .contact h3 { font-family: 'Figtree', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 0.2rem; }
-  .contact p { line-height: 1.55; }
-  .contact a { text-decoration: none; font-weight: 500; }
-  .contact a:hover { text-decoration: underline; }
-
-  footer { background: var(--ink); color: #a9c3d6; font-size: 0.9rem; padding: 2rem 0; }
-  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 2rem; }
-  footer a { color: #fff; }
-
-  @media (max-width: 900px) {
-    .hero-grid, .booking-grid, .about-grid, .find-grid { grid-template-columns: 1fr; }
-    .hero { padding-top: 2.5rem; }
-    .hero-photo { margin-top: 0.5rem; }
-    .areas { grid-template-columns: 1fr 1fr; }
-    .band-grid { grid-template-columns: 1fr; }
-    .band-item, .band-item:first-child { border-left: 0; padding: 1.1rem 0; border-top: 1px solid rgba(255,255,255,0.12); }
-    .band-item:first-child { border-top: 0; }
-    .about-grid img { max-width: 380px; }
-    .menu-toggle { display: block; }
-    .menu {
-      display: none; position: absolute; top: 72px; left: 0; right: 0;
-      flex-direction: column; align-items: flex-start; gap: 0;
-      background: var(--paper); border-bottom: 1px solid var(--line); padding: 0.5rem 1.5rem 1rem;
-    }
-    .menu.open { display: flex; }
-    .menu li { width: 100%; }
-    .menu a { display: block; padding: 0.7rem 0; font-size: 1.05rem; }
-    .bar .btn-small { display: none; }
-  }
-  @media (max-width: 560px) {
-    .brand small { display: none; }
-    .brand strong { font-size: 0.92rem; }
-    .areas { grid-template-columns: 1fr; }
-    section { padding: 4rem 0; }
-    .hero-photo figcaption { position: static; margin-top: 0.75rem; box-shadow: none; }
-    .callbox .phone { font-size: 2rem; }
-  }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
   <div class="wrap bar">
-    <a href="#" class="brand" aria-label="Til toppen">
+    <a href="./" class="brand" aria-label="Forside">
       <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#1f5f8b"/><path d="M10 22c0-6 2-10 5-11v11c-2 1-5 1-5 0zm12 0c0-6-2-10-5-11v11c2 1 5 1 5 0z" fill="#fff"/></svg>
       <span><strong>Astma-, allergi- og lungeklinik for børn</strong><small>Kim Gjerum Nielsen, København K</small></span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
     <ul class="menu" id="menu">
-      <li><a href="#behandling">Behandling</a></li>
-      <li><a href="#tid">Bestil tid</a></li>
+      <li><a href="konsultation/">Konsultation</a></li>
+      <li><a href="ny-patient/">Første besøg</a></li>
       <li><a href="#om">Om lægen</a></li>
-      <li><a href="#find">Find os</a></li>
+      <li><a href="find-os/">Find os</a></li>
     </ul>
     <a href="tel:33136513" class="btn btn-solid btn-small">Ring 3313 6513</a>
   </div>
@@ -263,13 +86,14 @@
     <div class="wrap">
       <div class="head">
         <h2>Sådan bestiller du tid</h2>
-        <p>Tider bestilles over telefonen. Til opfølgning og spørgsmål kan du også bruge e-konsultation.</p>
+        <p>Tider bestilles over telefonen og kræver henvisning fra egen læge. <a href="ny-patient/">Læs om første besøg</a>.</p>
       </div>
       <div class="booking-grid">
         <ol class="steps">
+          <li><h3>Få en henvisning</h3><p>Egen læge sender en elektronisk henvisning til børnelæge. Konsultationen kræver gyldig henvisning.</p></li>
           <li><h3>Ring i telefontiden</h3><p>Mandag kl. 8.00–9.30 og tirsdag–torsdag kl. 8.00–9.00 på 3313 6513.</p></li>
           <li><h3>Kom til konsultation</h3><p>Konsultationerne er om onsdagen kl. 15.30–20.00 på Nørre Farimagsgade 13, 1. tv.</p></li>
-          <li><h3>Følg op digitalt</h3><p>Har du spørgsmål bagefter, kan du skrive til klinikken via patientportalen.</p></li>
+          <li><h3>Følg op digitalt</h3><p>Har du spørgsmål bagefter, kan du skrive til klinikken via patientportalen. <a href="telefonkonsultation1/">Læs mere</a></p></li>
         </ol>
         <div class="callbox">
           <p class="label">Ring til klinikken</p>
@@ -333,8 +157,8 @@
 
 <footer>
   <div class="wrap foot">
-    <p>© <span id="year">2026</span> Astma-, Allergi- og Lungeklinik for Børn v/ Kim Gjerum Nielsen. CVR 29907706.</p>
-    <p><a href="https://patientportal.egclinea.com/?id=648" target="_blank" rel="noopener">E-konsultation</a></p>
+    <p>© <span id="year">2026</span> Astma-, Allergi- og Lungeklinik for Børn v/ Kim Gjerum Nielsen. Nørre Farimagsgade 13, 1. tv., 1364 København K. CVR 29907706.</p>
+    <p><a href="utilsigtede-haendelser/">Utilsigtede hændelser</a> &nbsp; <a href="https://patientportal.egclinea.com/?id=648" target="_blank" rel="noopener">E-konsultation</a></p>
   </div>
 </footer>
 
